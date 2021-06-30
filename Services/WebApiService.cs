@@ -70,13 +70,13 @@ namespace Services
                 var request = new RestRequest(path, Method.POST);
 
                 request.AddParameter("assoscmd", "kullaniciOner");
-                
+
                 request.AddParameter("rtype", "json");
 
                 Task<IRestResponse> restResponse = _client.ExecuteAsync(request);
 
                 var result = JsonConvert.DeserializeObject(restResponse.Result.Content, _defaultSettings); ///deserializer.Deserialize<RestResult<List<PbsUser>>>(restResponse);
-             
+
                 var isSuccessful = restResponse.Result.IsSuccessful;
 
                 request.AddHeaders(_headers);
@@ -89,10 +89,23 @@ namespace Services
 
             return Task.CompletedTask;
         }
+
+        public Task<TResponse> SendRequest<TResponse, TRequest>(TRequest request) where TResponse : class
+        {
+            
+        }
+
+        public Task<bool> Connect()
+        {
+            throw new NotImplementedException();
+        }
     }
+
 
     public interface IWebApiService
     {
         public Task SetTestCredentialsAsync();
+
+        public Task<bool> Connect();
     }
 }
