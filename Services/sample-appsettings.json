@@ -1,0 +1,16 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "EFaturaApi": {
+    "Url": "https://earsivportal.efatura.gov.tr",
+    "TestUrl": "https://earsivportaltest.efatura.gov.tr",
+    "Dispatch": "earsiv-services/dispatch",
+    "Token": "earsiv-services/assos-login",
+    "ReferrerToken": "intragiris.html"
+  }
+}
