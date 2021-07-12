@@ -34,8 +34,8 @@ namespace Services
             _dispatch = configuration["EFaturaApi:Dispatch"];
             _token = configuration["EFaturaApi:Token"];
             _referrerToken = configuration["EFaturaApi:ReferrerToken"];
-            _username = configuration["EFaturaApi:Username"];
-            _password = configuration["EFaturaApi:Password"];
+            _username = configuration["EFaturaApi:Username"] ?? throw new ArgumentNullException(nameof(_username));
+            _password = configuration["EFaturaApi:Password"] ?? throw new ArgumentNullException(nameof(_password));
             _client = new RestClient(_url);
 
             _headers = new List<KeyValuePair<string, string>>
@@ -90,12 +90,22 @@ namespace Services
             return Task.CompletedTask;
         }
 
-        public Task<TResponse> SendRequest<TResponse, TRequest>(TRequest request) where TResponse : class
+        public Task<TResponse> Send<TResponse, TRequest>(TRequest request) where TResponse : class
         {
-            
+            throw new NotImplementedException();
         }
 
         public Task<bool> Connect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> GetToken()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Disconnect()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Types
 {
     public struct ParaBirimleri
     {
